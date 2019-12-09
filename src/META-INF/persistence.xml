@@ -7,6 +7,7 @@
 		<class>entity.Viaje</class>
 		<class>entity.ConductorPosicion</class>
 		<class>entity.ViajeFinalizado</class>
+		<class>entity.Cliente</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://3.133.147.159:3306/ride"/>
 			<property name="javax.persistence.jdbc.user" value="phpmyadminuser"/>

@@ -1,25 +1,21 @@
 package dao;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import entity.Viaje;
-import entity.ViajeFinalizado;
+import entity.Cliente;
 import utils.JpaUtils;
 
-public class ViajeFinalizadoFacade extends AbstractFacade<ViajeFinalizado> implements Serializable {
+public class ClienteFacade extends AbstractFacade<Cliente> implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private EntityManager em;
-
-	public ViajeFinalizadoFacade() {
-		super(ViajeFinalizado.class);
-		getEntityManager();
-		// TODO Auto-generated constructor stub
+	
+	public ClienteFacade() {
+		super(Cliente.class);
 	}
+
 
 	@Override
 	protected EntityManager getEntityManager() {
