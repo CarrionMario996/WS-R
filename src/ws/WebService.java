@@ -19,13 +19,13 @@ import com.google.gson.JsonParser;
 
 import dao.ClienteFacade;
 import dao.ConductorFacade;
-
+import dao.ConductorPosicionFacade;
 import dao.VehiculoFacade;
 import dao.ViajeFacade;
 import dao.ViajeFinalizadoFacade;
 import entity.Cliente;
 import entity.Conductor;
-
+import entity.ConductorPosicion;
 import entity.Vehiculo;
 import entity.Viaje;
 import entity.ViajeFinalizado;
@@ -43,6 +43,8 @@ public class WebService {
 	private ViajeFinalizado vfc;
 	private Cliente cl;
 	private ClienteFacade clf;
+	private ConductorPosicionFacade cpf;
+	private ConductorPosicion cp;
 
 	public WebService() {
 		vf = new VehiculoFacade();
@@ -55,6 +57,8 @@ public class WebService {
 		vfc = new ViajeFinalizado();
 		cl = new Cliente();
 		clf = new ClienteFacade();
+		cpf = new ConductorPosicionFacade();
+		cp = new ConductorPosicion();
 
 	}
 
@@ -98,8 +102,8 @@ public class WebService {
 	}
 
 	@GET
-	@Path("/listaClienteJson")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/historialViaje")
+	@Produces({MediaType.APPLICATION_JSON})
 	public String clientesAll(@QueryParam("telefono") String telefono) {
 
 		List<?> lista = new ArrayList<Viaje>();
@@ -132,13 +136,6 @@ public class WebService {
 		return name;
 	}
 
-	/*
-	 * .header("Access-Control-Allow-Origin", "*")
-	 * .header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
-	 * .header("Access-Control-Allow-Headers",
-	 * "Content-Type, Accept, X-Requested-With").build();
-	 */
-
 	@POST
 	@Path("/calculoViajes")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -160,6 +157,18 @@ public class WebService {
 			}
 		}
 	}
+
+	/*@GET
+	@Path("/UbicacionCliente")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void ubicacionUsuario(@QueryParam(value = "origen_desc") String origen_dec,
+			@QueryParam(value = "destino_desc") String destino_desc) {
+		List<ConductorPosicion> lista = new ArrayList<ConductorPosicion>();
+		lista = cpf.mostrarViajes();
+		if (lista.isEmpty()) {
+			String resultado=cpf.getConductor(viaje, listaConductorPosicion);
+		}
+	}*/
 
 //	@GET
 //	@Path("/coordenadasViaje")
