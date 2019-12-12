@@ -23,7 +23,6 @@ public class Viaje implements Serializable {
 	private Date fecha;
 	private String origen;
 	private BigDecimal precio;
-	
 
 	public Viaje() {
 	}
@@ -32,11 +31,8 @@ public class Viaje implements Serializable {
 		super();
 		this.idViaje = idViaje;
 		this.destino = destino;
-
 		this.fecha = fecha;
-
 		this.origen = origen;
-
 		this.precio = precio;
 
 	}
